@@ -5,4 +5,5 @@
   <actuator type="X8-9" />
   <link type="X5" extension="0.525000" twist="0" />
   <actuator type="X8-9" />
+  <end-effector type="Custom" mass="0.2" />
 </robot>
