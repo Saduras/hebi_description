@@ -17,9 +17,28 @@
     <parent link="world"/>
     <child link="rail"/>
   </joint>
-
-  <link name="rail"/>
-
+ <link name="rail">
+    <collision>
+      <origin xyz="0 0 0.6" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="2" radius=".016"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0.6" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="2" radius=".016"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+  <gazebo reference="rail">
+    <material>Gazebo/Grey</material>
+  </gazebo>
   <joint name="prismatic" type="prismatic">
     <parent link="rail"/>
     <child link="Arm/J1_shoulder/INPUT_INTERFACE"/>
@@ -28,7 +47,6 @@
     <dynamics damping="0.1"/>
     <limit effort="1000" velocity="1000" lower="0" upper="2"/>
   </joint>
-
   <link name="Arm/J1_shoulder/INPUT_INTERFACE">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
